@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cegsa7be3uet7"]
+
+[ext_resource type="Script" uid="uid://cxvxt3on3hjlo" path="res://main_menu.gd" id="1_7vrkn"]
+[ext_resource type="PackedScene" uid="uid://cmfmwym6menb3" path="res://main_hud.tscn" id="2_fu7sn"]
+[ext_resource type="PackedScene" uid="uid://l6tyfvk3cnx3" path="res://BunnyHouse/bunny_house.tscn" id="3_fu7sn"]
+
+[node name="MainMenu" type="Node" unique_id=1839829576]
+script = ExtResource("1_7vrkn")
+
+[node name="MainScreen" type="TileMapLayer" parent="." unique_id=682842715]
+
+[node name="mainHUD" parent="." unique_id=2121246141 instance=ExtResource("2_fu7sn")]
+
+[node name="BunnyHouse" parent="." unique_id=403351863 instance=ExtResource("3_fu7sn")]
+
+[connection signal="start_game" from="mainHUD" to="." method="new_game"]

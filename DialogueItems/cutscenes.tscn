@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://5dm2b57u67aa"]
+
+[ext_resource type="Script" uid="uid://dof0u3jngvpy8" path="res://DialogueItems/cutscenes.gd" id="1_c4kvi"]
+[ext_resource type="Texture2D" uid="uid://cn2hse6wgbwy5" path="res://DialogueItems/BunnyDefault.png" id="2_my17m"]
+[ext_resource type="Texture2D" uid="uid://b35thr2jiniqw" path="res://DialogueItems/RayDefault.png" id="3_yukh4"]
+[ext_resource type="Texture2D" uid="uid://8vgodpjo4dmn" path="res://DialogueItems/DialogueBox.png" id="4_ckqtx"]
+[ext_resource type="Texture2D" uid="uid://7jji2cic4jh6" path="res://DialogueItems/ArrowIcon.png" id="5_my17m"]
+[ext_resource type="Texture2D" uid="uid://b4u4jr04ifps8" path="res://DialogueItems/ArrowHover.png" id="6_yukh4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hsmve"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_my17m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ojjkl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_yukh4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Cutscenes" type="CanvasLayer" unique_id=481739598]
+script = ExtResource("1_c4kvi")
+
+[node name="Bunny" type="AnimatedSprite2D" parent="." unique_id=2011913287]
+sprite_frames = SubResource("SpriteFrames_hsmve")
+
+[node name="Ray" type="AnimatedSprite2D" parent="." unique_id=227886515]
+sprite_frames = SubResource("SpriteFrames_ojjkl")
+
+[node name="DialogueItems" type="Control" parent="." unique_id=759212744]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 1
+
+[node name="DialogueBox" type="Sprite2D" parent="DialogueItems" unique_id=1730551295]
+position = Vector2(576, 543)
+texture = ExtResource("4_ckqtx")
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueItems" unique_id=1449044599]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 462.0
+offset_right = 1121.0
+offset_bottom = 625.0
+theme_override_constants/margin_left = 15
+
+[node name="Name" type="Label" parent="DialogueItems/MarginContainer" unique_id=1865137389]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 40
+text = "Name"
+
+[node name="Dialogue" type="RichTextLabel" parent="DialogueItems/MarginContainer" unique_id=959020032]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 40
+text = "Dialogue"
+fit_content = true
+scroll_active = false
+
+[node name="Button" type="TextureButton" parent="DialogueItems/MarginContainer" unique_id=994602687]
+process_mode = 3
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+mouse_filter = 1
+texture_normal = ExtResource("5_my17m")
+texture_hover = ExtResource("6_yukh4")
+
+[node name="Left" type="Marker2D" parent="." unique_id=603766574]
+position = Vector2(300, 324)
+
+[node name="Right" type="Marker2D" parent="." unique_id=776268170]
+position = Vector2(852, 324.25)

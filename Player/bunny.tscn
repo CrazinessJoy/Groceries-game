@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://dhgmk0yus0g0p"]
+
+[ext_resource type="Script" uid="uid://bkbl78tnpfxoc" path="res://Player/bunny.gd" id="1_5ecvt"]
+[ext_resource type="Texture2D" uid="uid://dwd5rlul32sxu" path="res://Player/fall.png" id="2_6m75y"]
+[ext_resource type="Texture2D" uid="uid://bpe40sb6mhpet" path="res://Player/idle.png" id="3_ac77u"]
+[ext_resource type="Texture2D" uid="uid://bu4wns0fldd66" path="res://Player/jump_horiz.png" id="4_h6j5v"]
+[ext_resource type="Texture2D" uid="uid://dklt557vxtkr4" path="res://Player/jump_vert.png" id="5_1bsw5"]
+[ext_resource type="Texture2D" uid="uid://cj8y8fkgmobbb" path="res://Player/walk1.png" id="6_5owft"]
+[ext_resource type="Texture2D" uid="uid://bi2pvxmmo7pat" path="res://Player/walk2.png" id="7_0emvq"]
+[ext_resource type="PackedScene" uid="uid://bhy8t42xce503" path="res://interacting_component.tscn" id="8_qx6ai"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a3k4u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6m75y")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ac77u")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_h6j5v")
+}],
+"loop": true,
+"name": &"jump_horiz",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_1bsw5")
+}],
+"loop": true,
+"name": &"jump_vert",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_5owft")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_0emvq")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a3k4u"]
+radius = 4.0
+height = 20.0
+
+[node name="Bunny" type="CharacterBody2D" unique_id=2132820421]
+script = ExtResource("1_5ecvt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1151878244]
+sprite_frames = SubResource("SpriteFrames_a3k4u")
+animation = &"walk"
+frame_progress = 0.9842302
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1075552899]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_a3k4u")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1782469405]
+position = Vector2(0, 1)
+zoom = Vector2(1.25, 1.25)
+limit_left = 0
+limit_top = 0
+limit_right = 1792
+limit_bottom = 648
+
+[node name="InteractingComponent" parent="." unique_id=504817705 instance=ExtResource("8_qx6ai")]

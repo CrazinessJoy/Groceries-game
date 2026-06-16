@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dm4256737e3rs"]
+
+[ext_resource type="Texture2D" uid="uid://bgd3qgq3ka5n5" path="res://BunnyHouse/cabinetdoors.png" id="1_hyvr6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hyvr6"]
+size = Vector2(128, 256)
+
+[node name="CabinetDoor" type="StaticBody2D" unique_id=136006684]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=954159217]
+texture = ExtResource("1_hyvr6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=875121408]
+shape = SubResource("RectangleShape2D_hyvr6")

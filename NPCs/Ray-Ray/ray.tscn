@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://bupo2iauf4s02"]
+
+[ext_resource type="Script" uid="uid://ckxq0cyjtminl" path="res://NPCs/Ray-Ray/ray.gd" id="1_3d8m2"]
+[ext_resource type="Texture2D" uid="uid://dq20prpbq0dfl" path="res://NPCs/Ray-Ray/fall.png" id="1_xvyl2"]
+[ext_resource type="Texture2D" uid="uid://buqww7kcku3u3" path="res://NPCs/Ray-Ray/idle.png" id="2_xdd3b"]
+[ext_resource type="Texture2D" uid="uid://deos61d42u7ll" path="res://NPCs/Ray-Ray/jump_horiz_left.png" id="3_3d8m2"]
+[ext_resource type="Texture2D" uid="uid://b0rnkvieh6eru" path="res://NPCs/Ray-Ray/jump_horiz_right.png" id="4_2scot"]
+[ext_resource type="Texture2D" uid="uid://cbae3pue0qi84" path="res://NPCs/Ray-Ray/jump_vert.png" id="5_d3nkd"]
+[ext_resource type="Texture2D" uid="uid://dbr1kkbp02dup" path="res://NPCs/Ray-Ray/walk_left1.png" id="6_7litk"]
+[ext_resource type="Texture2D" uid="uid://bog2bxh0vwau2" path="res://NPCs/Ray-Ray/walk_left2.png" id="7_7qrj6"]
+[ext_resource type="Texture2D" uid="uid://bstrmal6ud8ro" path="res://NPCs/Ray-Ray/walk_right1.png" id="8_kf1gs"]
+[ext_resource type="Texture2D" uid="uid://babiikvj75uuw" path="res://NPCs/Ray-Ray/walk_right2.png" id="9_nk5m5"]
+[ext_resource type="PackedScene" uid="uid://ca4iact1tcki" path="res://interactable.tscn" id="10_xdd3b"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qblwc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_xvyl2")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xdd3b")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_3d8m2")
+}],
+"loop": true,
+"name": &"jump_horiz_left",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_2scot")
+}],
+"loop": true,
+"name": &"jump_horiz_right",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_d3nkd")
+}],
+"loop": true,
+"name": &"jump_vert",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_7litk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_7qrj6")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_kf1gs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_nk5m5")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 3.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xvyl2"]
+radius = 4.0
+height = 20.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xdd3b"]
+radius = 13.0
+
+[node name="Ray" type="AnimatableBody2D" unique_id=565167533 groups=["NPC"]]
+collision_layer = 4
+script = ExtResource("1_3d8m2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=73529703]
+sprite_frames = SubResource("SpriteFrames_qblwc")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1655176486]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_xvyl2")
+
+[node name="Interactable" parent="." unique_id=690141901 instance=ExtResource("10_xdd3b")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=1233527199]
+shape = SubResource("CircleShape2D_xdd3b")

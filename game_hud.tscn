@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://xu055dfh5f1s"]
+
+[node name="GameHUD" type="CanvasLayer" unique_id=794966736]
+
+[node name="Message" type="Label" parent="." unique_id=62599449]
+offset_right = 40.0
+offset_bottom = 14.0
+
+[node name="Items" type="Label" parent="." unique_id=559604090]
+offset_right = 40.0
+offset_bottom = 14.0
+
+[node name="MessageTimer" type="Timer" parent="." unique_id=2062507833]
+
+[node name="Inventory" type="Button" parent="." unique_id=261786882]
+offset_left = -1.0
+offset_right = 163.0
+offset_bottom = 136.0
+text = "make this the inventory icon
+make a new scene for the inventory, the button will call on that scene"
