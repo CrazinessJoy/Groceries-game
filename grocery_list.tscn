@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://boiuo4ag5p65w"]
+
+[ext_resource type="PackedScene" uid="uid://ca4iact1tcki" path="res://interactable.tscn" id="1_ovvk5"]
+[ext_resource type="Texture2D" uid="uid://bpmtcq1se2co0" path="res://BunnyHouse/grocerylist.png" id="1_rvjsl"]
+[ext_resource type="Script" uid="uid://djtn02lqwu1pg" path="res://grocery_list.gd" id="2_71rlr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rvjsl"]
+radius = 21.523243
+
+[node name="GroceryList" type="Sprite2D" unique_id=876563458]
+texture = ExtResource("1_rvjsl")
+script = ExtResource("2_71rlr")
+
+[node name="Interactable" parent="." unique_id=690141901 instance=ExtResource("1_ovvk5")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=692222359]
+position = Vector2(0.5, 2)
+shape = SubResource("CircleShape2D_rvjsl")
+disabled = true

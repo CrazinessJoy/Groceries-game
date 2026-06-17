@@ -1,11 +1,13 @@
 extends Node2D
 
 var interact_label
+var interacted = false
 
 func start():
 	$Bunny.start($EnterPosition.position)
 	$Ray.start($CounterPosition.position)
 	interact_label = $Bunny/InteractingComponent/InteractIcon
+	$Bunny/Camera2D.enabled = true
 	show()
 
 # Trigger a cutscene of Ray-Ray asking Bunny to do the groceries 
@@ -14,10 +16,14 @@ func start():
 # And then it goes back to the regular scene,
 # Ray-Ray follows the CabinetDoorsPath to go the CabinetDoors and stands over there.
 # If Bunny interacts with him again she tells her he's busy right now.
-func interact_ray_scene1():
-	print("Ray interact scene1") 
-	$Cutscenes.scene1()
-	
+func interact_ray():
+	# add an if statement here so he doesn't keep repeating scene1
+	if !interacted:
+		$Cutscenes.scene1()
+		$GroceryList/Interactable/CollisionShape2D.disabled = false
+		interacted = true
+		# Move Ray-Ray along CabinetDoorsPath here
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	start()

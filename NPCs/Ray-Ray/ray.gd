@@ -53,7 +53,7 @@ func _process(_delta):
 		#velocity.y = jump_speed
 		
 func interact(): 
-	await get_parent().interact_ray_scene1()   
+	await get_parent().interact_ray()
 	
 	
 func start(pos):

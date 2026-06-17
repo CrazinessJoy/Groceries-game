@@ -12,7 +12,7 @@ func _ready() -> void:
 
 func scene1():
 	bunny('default')
-	ray('default')
+	ray('speak')
 	set_left($Bunny)
 	set_right($Ray)
 	$DialogueItems.show()
@@ -20,8 +20,15 @@ func scene1():
 	speaker.text = 'Ray-Ray'
 	dialogue.text = "Bunny, I'm going to try to fix the cabinet doors today. Do you think you can go grocery shopping?"
 	await button.pressed
+	$Ray.animation = 'default'
+	$Bunny.animation = 'happy'
 	speaker.text = 'Bunny'
 	dialogue.text = 'Yep! You can count on me!'
+	await button.pressed
+	$Ray.animation = 'speak'
+	$Bunny.animation = 'default'
+	speaker.text = 'Ray-Ray'
+	dialogue.text = 'Thanks. I left the grocery list on the fridge.'
 	await button.pressed
 	get_parent().process_mode = Node.PROCESS_MODE_INHERIT
 	$DialogueItems.hide()
