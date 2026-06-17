@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const JUMP_VELOCITY = -350.0
-var run_speed = 500
+var run_speed = 450
 var jump_speed = -900
 var gravity = 2500
 var screen_size

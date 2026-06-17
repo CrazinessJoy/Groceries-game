@@ -18,9 +18,8 @@ config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=2560
-window/size/viewport_height=1440
-window/size/mode=2
+window/size/viewport_width=640
+window/size/viewport_height=360
 window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
 
@@ -68,10 +67,22 @@ jump={
 [physics]
 
 3d/physics_engine="Jolt Physics"
-common/size/borderless=false
 
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="mobile"
+textures/stretch/mode="viewport"
+textures/size/viewport_height=648
+textures/size/viewport_width=1152
+textures/size/window_height_override=0
+textures/size/window_width_override=0
+textures/size/mode=0
+textures/stretch/aspect="keep"
+textures/stretch/scale=1.0
+textures/snap/snap_2d_transforms_to_pixel=false
+textures/size/borderless=false
+textures/size/initial_position_type=1
+textures/stretch/scale_mode="fractional"
+textures/use_filter=true

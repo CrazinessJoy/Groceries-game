@@ -23,6 +23,8 @@ func interact_ray():
 		$GroceryList/Interactable/CollisionShape2D.disabled = false
 		interacted = true
 		# Move Ray-Ray along CabinetDoorsPath here
+	else:
+		print("already interacted")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
