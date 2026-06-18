@@ -84,16 +84,16 @@ height = 20.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_xdd3b"]
 radius = 13.0
 
-[node name="Ray" type="AnimatableBody2D" unique_id=565167533 groups=["NPC"]]
+[node name="Ray" type="CharacterBody2D" unique_id=1334610346 groups=["NPC"]]
 collision_layer = 4
 script = ExtResource("1_3d8m2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=73529703]
 sprite_frames = SubResource("SpriteFrames_qblwc")
-animation = &"idle"
+animation = &"walk_right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1655176486]
-position = Vector2(0, 3)
+position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_xvyl2")
 
 [node name="Interactable" parent="." unique_id=690141901 instance=ExtResource("10_xdd3b")]

@@ -25,8 +25,9 @@ func _process(_delta: float):
 		$InteractIcon.hide()
 
 func _on_interact_range_area_entered(area: Area2D) -> void:
-	current_interactions.push_back(area)
-	current_interactions.sort_custom(_sort_by_nearest)
+	if area.is_interactable:
+		current_interactions.push_back(area)
+		current_interactions.sort_custom(_sort_by_nearest)
 
 func _on_interact_range_area_exited(area: Area2D) -> void:
 	current_interactions.erase(area)

@@ -1,6 +1,6 @@
-extends Sprite2D
+extends TextureRect
 
 func interact():
-	print("picked up grocery list")
 	$".".hide()
 	$Interactable/CollisionShape2D.disabled = true
+	get_parent().grocery_list()

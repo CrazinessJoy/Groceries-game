@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bgd3qgq3ka5n5" path="res://BunnyHouse/cabinetdoors.png" id="1_hyvr6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hyvr6"]
-size = Vector2(128, 256)
+size = Vector2(124, 180)
 
 [node name="CabinetDoor" type="StaticBody2D" unique_id=136006684]
 

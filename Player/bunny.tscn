@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dklt557vxtkr4" path="res://Player/jump_vert.png" id="5_1bsw5"]
 [ext_resource type="Texture2D" uid="uid://cj8y8fkgmobbb" path="res://Player/walk1.png" id="6_5owft"]
 [ext_resource type="Texture2D" uid="uid://bi2pvxmmo7pat" path="res://Player/walk2.png" id="7_0emvq"]
-[ext_resource type="PackedScene" uid="uid://bhy8t42xce503" path="res://interacting_component.tscn" id="8_qx6ai"]
+[ext_resource type="PackedScene" uid="uid://bhy8t42xce503" path="res://Player/interacting_component.tscn" id="8_qx6ai"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a3k4u"]
 animations = [{

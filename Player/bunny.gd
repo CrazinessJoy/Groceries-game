@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const JUMP_VELOCITY = -350.0
-var run_speed = 450
+var speed = 450
 var jump_speed = -900
 var gravity = 2500
 var screen_size
@@ -26,8 +26,7 @@ func _process(_delta):
 		new_anim = "jump_vert"
 		
 	if $AnimatedSprite2D.animation != new_anim:  # Checks if the animation has changed every second so it doesn't keep playing the first frame from reassignment every frame
-		$AnimatedSprite2D.animation = new_anim
-		$AnimatedSprite2D.play()
+		$AnimatedSprite2D.play(new_anim)
 
 func get_input():
 	var right = Input.is_action_pressed('move_right')
@@ -36,9 +35,9 @@ func get_input():
 	velocity.x = 0
 
 	if right:
-		velocity.x += run_speed
+		velocity.x += speed
 	if left:
-		velocity.x -= run_speed
+		velocity.x -= speed
 		
 	if velocity.length() > 0:
 		$AnimatedSprite2D.play()

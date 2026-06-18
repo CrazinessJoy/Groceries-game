@@ -34,6 +34,21 @@ func scene1():
 	$DialogueItems.hide()
 	$Bunny.hide()
 	$Ray.hide()
+	
+func cabinets():
+	bunny('default')
+	ray('speak')
+	set_left($Bunny)
+	set_right($Ray)
+	$DialogueItems.show()
+	get_parent().process_mode = Node.PROCESS_MODE_DISABLED
+	speaker.text = 'Ray-Ray'
+	dialogue.text = "I'm trying to fix the cabinets right now."
+	await button.pressed
+	get_parent().process_mode = Node.PROCESS_MODE_INHERIT
+	$DialogueItems.hide()
+	$Bunny.hide()
+	$Ray.hide()
 
 func bunny(anim: String):
 	$Bunny.animation = anim

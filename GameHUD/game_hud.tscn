@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://xu055dfh5f1s"]
+
+[ext_resource type="Script" uid="uid://qralrh6ates6" path="res://GameHUD/game_hud.gd" id="1_og655"]
+[ext_resource type="Texture2D" uid="uid://cb7fouckmh46o" path="res://GameHUD/ToDoList.png" id="1_q4g6c"]
+[ext_resource type="Texture2D" uid="uid://55btjfxk04kx" path="res://GameHUD/ToDoList_Pressed.png" id="3_2uf8q"]
+[ext_resource type="Texture2D" uid="uid://c4v32k4p0njax" path="res://GameHUD/ToDoList_Hover.png" id="3_vpmjm"]
+[ext_resource type="Texture2D" uid="uid://cacwppih5vxk8" path="res://List.png" id="5_s8tvx"]
+[ext_resource type="Texture2D" uid="uid://f808t2m1losm" path="res://GameHUD/X.png" id="6_bh6g3"]
+[ext_resource type="Texture2D" uid="uid://cg8hf0b8ubdqp" path="res://GameHUD/X_Hover.png" id="8_h41do"]
+
+[node name="GameHUD" type="CanvasLayer" unique_id=794966736]
+script = ExtResource("1_og655")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=642928249]
+offset_right = 32.0
+offset_bottom = 32.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+
+[node name="ListButton" type="TextureButton" parent="MarginContainer" unique_id=763497346]
+layout_mode = 2
+focus_mode = 0
+texture_normal = ExtResource("1_q4g6c")
+texture_pressed = ExtResource("3_2uf8q")
+texture_hover = ExtResource("3_vpmjm")
+
+[node name="ToDoList" type="TextureRect" parent="." unique_id=785910810]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -100.0
+offset_right = 50.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_s8tvx")
+
+[node name="Title" type="Label" parent="ToDoList" unique_id=154555100]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -33.0
+offset_right = 33.0
+offset_bottom = 28.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.21960784, 0.13725491, 0.10980392, 1)
+theme_override_font_sizes/font_size = 32
+text = "To-Do:"
+
+[node name="Label" type="RichTextLabel" parent="ToDoList" unique_id=423502674]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 35.0
+offset_right = 141.0
+offset_bottom = 286.0
+size_flags_horizontal = 4
+theme_override_colors/default_color = Color(0.21960784, 0.13725491, 0.10980392, 1)
+bbcode_enabled = true
+text = "Get Groceries:
+- Bread
+- Apples
+- Bananas
+- Tuna
+- Grapes"
+horizontal_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="ToDoList" unique_id=2144036002]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -21.0
+offset_top = 6.0
+offset_right = -5.0
+offset_bottom = 26.0
+grow_horizontal = 0
+texture_normal = ExtResource("6_bh6g3")
+texture_hover = ExtResource("8_h41do")
+
+[connection signal="pressed" from="MarginContainer/ListButton" to="." method="_on_to_do_list_pressed"]
+[connection signal="pressed" from="ToDoList/TextureButton" to="." method="_on_texture_button_pressed"]

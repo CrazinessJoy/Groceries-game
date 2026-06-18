@@ -1,13 +1,9 @@
 extends Node2D
 
-var interact_label
 var interacted = false
 
 func start():
-	$Bunny.start($EnterPosition.position)
 	$Ray.start($CounterPosition.position)
-	interact_label = $Bunny/InteractingComponent/InteractIcon
-	$Bunny/Camera2D.enabled = true
 	show()
 
 # Trigger a cutscene of Ray-Ray asking Bunny to do the groceries 
@@ -19,18 +15,34 @@ func start():
 func interact_ray():
 	# add an if statement here so he doesn't keep repeating scene1
 	if !interacted:
-		$Cutscenes.scene1()
+		$Ray/Interactable.is_interactable = false
+		await $"../Cutscenes".scene1()
 		$GroceryList/Interactable/CollisionShape2D.disabled = false
-		interacted = true
+		
 		# Move Ray-Ray along CabinetDoorsPath here
+		
+		$CabinetDoorsPath/PathFollow2D/RemoteTransform2D.update_position = true
+		interacted = true
+
+		# When Ray-Ray has finished moving, renable interaction. Also enable leaving the house
+		# This is done in physics_process
 	else:
-		print("already interacted")
+		await $"../Cutscenes".cabinets()
+
+func grocery_list():
+	get_parent().list_activate()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$CabinetDoorsPath/PathFollow2D/RemoteTransform2D.remote_path = "../Ray"
 	start()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
+	
+func _physics_process(delta):
+	if interacted:
+		$CabinetDoorsPath/PathFollow2D.progress += $Ray.speed * delta
+		$Ray.global_position = $CabinetDoorsPath/PathFollow2D.global_position
+		print($Ray/Interactable.is_interactable)
+		if($CabinetDoorsPath/PathFollow2D.progress_ratio == 1.0):
+			print("its true")
+			$Ray/Interactable.is_interactable = true
+			set_physics_process(false)

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bhy8t42xce503"]
 
-[ext_resource type="Script" uid="uid://6oyor1pcvgpq" path="res://interacting_component.gd" id="1_0w7yd"]
+[ext_resource type="Script" uid="uid://6oyor1pcvgpq" path="res://Player/interacting_component.gd" id="1_0w7yd"]
 [ext_resource type="Texture2D" uid="uid://8lxha2wiatak" path="res://Player/bunny_interact_icon.png" id="2_3rmx8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3rmx8"]
@@ -26,6 +26,7 @@ offset_right = 40.0
 offset_bottom = 14.0
 
 [node name="InteractTimer" type="Timer" parent="." unique_id=426156110]
+wait_time = 0.3
 
 [connection signal="area_entered" from="InteractRange" to="." method="_on_interact_range_area_entered"]
 [connection signal="area_exited" from="InteractRange" to="." method="_on_interact_range_area_exited"]
